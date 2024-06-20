@@ -6,6 +6,7 @@ import "./App.css";
 //Pages
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
+import SignUp from "./pages/SignUp/SignUp";
 
 //Components
 import Navbar from "./components/Navbar/Navbar";
@@ -15,10 +16,11 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <Navbar />
         <div className="container">
-          <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/signup" element={<SignUp />} />
             <Route path="/about" element={<About />} />
           </Routes>
         </div>
