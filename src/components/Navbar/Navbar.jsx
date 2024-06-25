@@ -1,9 +1,19 @@
+//Libs
 import { NavLink } from "react-router-dom";
 
 //Styles
 import styles from "./Navbar.module.css";
 
+//Hooks
+import { useAuthentication } from "../../hooks/useAuthentication";
+
+//Context
+import { useAuthContext } from "../../context/AuthContext";
+
 const Navbar = () => {
+  const { user } = useAuthContext();
+  const { logout } = useAuthentication();
+
   return (
     <>
       <nav className={styles.navbar}>
@@ -19,14 +29,46 @@ const Navbar = () => {
               Home
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/signup"
-              className={({ isActive }) => (isActive ? styles.active : "")}
-            >
-              Sign Up
-            </NavLink>
-          </li>
+          {user === null && (
+            <>
+              <li>
+                <NavLink
+                  to="/login"
+                  className={({ isActive }) => (isActive ? styles.active : "")}
+                >
+                  Login
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/signup"
+                  className={({ isActive }) => (isActive ? styles.active : "")}
+                >
+                  Sign Up
+                </NavLink>
+              </li>
+            </>
+          )}
+          {user !== null && (
+            <>
+              <li>
+                <NavLink
+                  to="/posts"
+                  className={({ isActive }) => (isActive ? styles.active : "")}
+                >
+                  Posts
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/dashboard"
+                  className={({ isActive }) => (isActive ? styles.active : "")}
+                >
+                  Dashboard
+                </NavLink>
+              </li>
+            </>
+          )}
           <li>
             <NavLink
               to="/about"
@@ -35,6 +77,11 @@ const Navbar = () => {
               About
             </NavLink>
           </li>
+          {user !== null && (
+            <li>
+              <button onClick={logout}>Exit</button>
+            </li>
+          )}
         </ul>
       </nav>
     </>

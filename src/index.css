@@ -100,8 +100,9 @@ input, textarea{
   background-color: #dc3545;
 }
 
-button:disabled{
+.btn[disabled]{
   background-color: #aaa;
+  width: auto;
 }
 
 .container .error{
@@ -111,4 +112,5 @@ button:disabled{
   padding: 5px;
   border-radius: 5px;
   margin: 1em 0;
+  text-align: center;
 }

@@ -1,0 +1,12 @@
+.login_header {
+    text-align: center;
+    margin: 20px 0px 20px 0px;
+}
+
+.login_header h1 {
+    margin-bottom: 10px;
+}
+
+.login_header p {
+    color: #aaa;
+}

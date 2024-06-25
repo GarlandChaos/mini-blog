@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 //Styles
-import styles from "./SignUp.module.css";
+import styles from "./Login.module.css";
 
 //Hooks
 import { useAuthentication } from "../../hooks/useAuthentication";
@@ -10,26 +10,18 @@ const SignUp = () => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
-  const { createUser, error: authError, loading } = useAuthentication();
+  const { login, error: authError, loading } = useAuthentication();
 
-  const handleCreateAccount = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     setError("");
 
-    if (password !== confirmPassword) {
-      setError("Confirmation password doesn't match!");
-      return;
-    }
+    const user = { email, password };
 
-    const user = { userName, email, password };
-
-    const res = await createUser(user);
-
-    console.log(user);
+    const res = await login(user);
   };
 
   useEffect(() => {
@@ -40,11 +32,11 @@ const SignUp = () => {
 
   return (
     <>
-      <div className={styles.signup_header}>
-        <h1>Sign up to post</h1>
-        <p>Create your user and share your stories</p>
+      <div className={styles.login_header}>
+        <h1>Login</h1>
+        <p>Login to share your stories</p>
       </div>
-      <form onSubmit={handleCreateAccount}>
+      <form onSubmit={handleLogin}>
         <label>
           <span>Username:</span>
           <input
@@ -78,20 +70,7 @@ const SignUp = () => {
             onChange={(e) => setPassword(e.currentTarget.value)}
           />
         </label>
-        <label>
-          <span>Password confirmation:</span>
-          <input
-            type="password"
-            name="confirmPassword"
-            required
-            placeholder="Confirm your password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.currentTarget.value)}
-          />
-        </label>
-        {!loading && (
-          <input className="btn" type="submit" value="Create account" />
-        )}
+        {!loading && <input className="btn" type="submit" value="Login" />}
         {loading && <input className="btn" disabled value="Wait..." />}
         {error && <p className="error">{error}</p>}
       </form>
