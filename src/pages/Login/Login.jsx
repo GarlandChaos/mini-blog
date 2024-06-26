@@ -7,7 +7,6 @@ import styles from "./Login.module.css";
 import { useAuthentication } from "../../hooks/useAuthentication";
 
 const SignUp = () => {
-  const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -21,7 +20,7 @@ const SignUp = () => {
 
     const user = { email, password };
 
-    const res = await login(user);
+    await login(user);
   };
 
   useEffect(() => {
@@ -37,17 +36,6 @@ const SignUp = () => {
         <p>Login to share your stories</p>
       </div>
       <form onSubmit={handleLogin}>
-        <label>
-          <span>Username:</span>
-          <input
-            type="text"
-            name="userName"
-            required
-            placeholder="Username"
-            value={userName}
-            onChange={(e) => setUserName(e.currentTarget.value)}
-          />
-        </label>
         <label>
           <span>E-mail:</span>
           <input

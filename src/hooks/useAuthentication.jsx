@@ -1,7 +1,6 @@
-import { db } from "../firebase/config";
+import { auth } from "../firebase/config";
 
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
@@ -14,8 +13,6 @@ export const useAuthentication = () => {
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
   const [isCancelled, setIsCancelled] = useState(false);
-
-  const auth = getAuth();
 
   const createUser = async (data) => {
     console.log(isCancelled);
@@ -63,11 +60,17 @@ export const useAuthentication = () => {
       setLoading(false);
     } catch (error) {
       let systemErrorMessage;
+      console.log(error);
 
       if (error.message.includes("user-not-found")) {
         systemErrorMessage = "User not found";
       } else if (error.message.includes("wrong-password")) {
         systemErrorMessage = "Wrong password";
+      } else if (error.message.includes("invalid-credential")) {
+        systemErrorMessage = "Invalid login credentials";
+      } else if (error.message.includes("too-many-requests")) {
+        systemErrorMessage =
+          "Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later.";
       } else {
         systemErrorMessage = "An error has occurred, please try again later";
       }
