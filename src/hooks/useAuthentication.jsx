@@ -28,7 +28,7 @@ export const useAuthentication = () => {
         data.password
       );
 
-      await updateProfile(user, { displayName: data.displayName });
+      await updateProfile(user, { displayName: data.username });
 
       setLoading(false);
 
@@ -91,7 +91,6 @@ export const useAuthentication = () => {
 
     //cleanup function
     return () => {
-      console.log("executed cleanup");
       setIsCancelled(true);
     };
   }, []);

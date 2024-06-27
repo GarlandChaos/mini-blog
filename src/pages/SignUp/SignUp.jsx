@@ -7,7 +7,7 @@ import styles from "./SignUp.module.css";
 import { useAuthentication } from "../../hooks/useAuthentication";
 
 const SignUp = () => {
-  const [userName, setUserName] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -25,11 +25,9 @@ const SignUp = () => {
       return;
     }
 
-    const user = { userName, email, password };
+    const user = { username, email, password };
 
-    const res = await createUser(user);
-
-    console.log(user);
+    await createUser(user);
   };
 
   useEffect(() => {
@@ -49,11 +47,11 @@ const SignUp = () => {
           <span>Username:</span>
           <input
             type="text"
-            name="userName"
+            name="username"
             required
             placeholder="Username"
-            value={userName}
-            onChange={(e) => setUserName(e.currentTarget.value)}
+            value={username}
+            onChange={(e) => setUsername(e.currentTarget.value)}
           />
         </label>
         <label>
