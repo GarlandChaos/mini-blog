@@ -1,22 +1,27 @@
 //Libs
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 //Styles
 import styles from "./Home.module.css";
 
 //Components
-import PostCard from "../../components/PostCard/PostCard.jsx";
+import PostCard from "../../components/PostCard/PostCard";
 
 //Hooks
 import { useState } from "react";
-import { useFetchDocuments } from "../../hooks/useFetchDocuments.jsx";
+import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 
 const Home = () => {
-  const [query, setQuery] = useState();
+  const [query, setQuery] = useState("");
   const { documents, loading, error } = useFetchDocuments("Posts");
+  const navigate = useNavigate();
 
   const onSearchFormSubmit = (e) => {
     e.preventDefault();
+
+    if (query) {
+      return navigate(`/search?q=${query.toLowerCase()}`);
+    }
   };
 
   if (loading) return <p>Loading posts...</p>;

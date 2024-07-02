@@ -4,7 +4,7 @@ import {
   query,
   orderBy,
   onSnapshot,
-  //   where,
+  where,
 } from "firebase/firestore";
 import { db } from "../firebase/config";
 
@@ -29,7 +29,17 @@ export const useFetchDocuments = (
         const collectionReference = collection(db, documentCollection);
         let q;
 
-        q = await query(collectionReference, orderBy("createdAt", "desc"));
+        if(search){
+          q = await query(
+            collectionReference, 
+            where("tags.tags", "array-contains", search),
+            orderBy("createdAt", "desc"));
+        }
+        else{
+          q = await query(
+            collectionReference, 
+            orderBy("createdAt", "desc"));
+        }
 
         await onSnapshot(q, (querySnapshot) => {
           setDocuments(

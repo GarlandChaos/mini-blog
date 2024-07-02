@@ -3,9 +3,9 @@ import styles from "./CreatePost.module.css";
 
 //Hooks
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAddDocument } from "../../hooks/useAddDocument";
 import { useAuthContext } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
