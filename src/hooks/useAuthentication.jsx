@@ -10,7 +10,7 @@ import {
 import { useState, useEffect } from "react";
 
 export const useAuthentication = () => {
-  const [loading, setLoading] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [isCancelled, setIsCancelled] = useState(false);
 

@@ -1,5 +1,67 @@
+//Libs
+import { Link } from "react-router-dom";
+
+//Styles
+import styles from "./Home.module.css";
+
+//Components
+import PostCard from "../../components/PostCard/PostCard.jsx";
+
+//Hooks
+import { useState } from "react";
+import { useFetchDocuments } from "../../hooks/useFetchDocuments.jsx";
+
 const Home = () => {
-  return <div>Home</div>;
+  const [query, setQuery] = useState();
+  const { documents, loading, error } = useFetchDocuments("Posts");
+
+  const onSearchFormSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  if (loading) return <p>Loading posts...</p>;
+
+  return (
+    <>
+      <div className={styles.home_header}>
+        <h1>Recent Posts</h1>
+      </div>
+      <div className={styles.postCardsContainer}>
+        <form onSubmit={onSearchFormSubmit} className={styles.searchForm}>
+          <input
+            type="text"
+            name="searchBar"
+            placeholder="Search for posts here"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          <input className="btn btn-dark" type="submit" value="Search" />
+        </form>
+        {!error &&
+          documents.map((doc) => {
+            return (
+              <PostCard
+                key={doc.id}
+                postId={doc.id}
+                title={doc.title.title}
+                body={doc.body.body}
+                tags={doc.tags.tags}
+                createdBy={doc.createdBy}
+                imageUrl={doc.imageUrl.imageUrl}
+              />
+            );
+          })}
+        {(error || documents.length === 0) && (
+          <div className={styles.noPosts}>
+            <p>No posts found.</p>
+            <Link to="/createpost" className="btn">
+              Create first post
+            </Link>
+          </div>
+        )}
+      </div>
+    </>
+  );
 };
 
 export default Home;

@@ -13,16 +13,16 @@ import { useAuthentication } from "./hooks/useAuthentication";
 import { AuthContextProvider } from "./context/AuthContext";
 
 //Pages
-import Home from "./pages/Home/Home";
-import About from "./pages/About/About";
-import Login from "./pages/Login/Login";
-import SignUp from "./pages/SignUp/SignUp";
-import Posts from "./pages/Posts/Posts";
-import Dashboard from "./pages/Dashboard/Dashboard";
+import Home from "./pages/Home/Home.jsx";
+import About from "./pages/About/About.jsx";
+import Login from "./pages/Login/Login.jsx";
+import SignUp from "./pages/SignUp/SignUp.jsx";
+import CreatePost from "./pages/CreatePost/CreatePost.jsx";
+import Dashboard from "./pages/Dashboard/Dashboard.jsx";
 
 //Components
-import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
+import Navbar from "./components/Navbar/Navbar.jsx";
+import Footer from "./components/Footer/Footer.jsx";
 
 function App() {
   const [user, setUser] = useState(undefined);
@@ -56,8 +56,10 @@ function App() {
               />
               <Route path="/about" element={<About />} />
               <Route
-                path="/posts"
-                element={!isUserNull ? <Posts /> : <Navigate to="/signup" />}
+                path="/createpost"
+                element={
+                  !isUserNull ? <CreatePost /> : <Navigate to="/signup" />
+                }
               />
               <Route
                 path="/dashboard"

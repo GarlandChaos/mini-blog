@@ -1,0 +1,51 @@
+.home_header {
+    text-align: center;
+    margin: 20px 0px 20px 0px;
+}
+
+.home_header h1 {
+    margin-bottom: 10px;
+}
+
+.home_header p {
+    color: #aaa;
+}
+
+.searchForm{
+    max-width: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+
+.searchForm input[type="text"]{
+    margin-right: 10px;
+    width: 50%;
+}
+
+.searchForm input[type="submit"]{
+    margin: 0;
+}
+
+.postCardsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 2em auto;
+}
+
+.noPosts{
+    text-align: center;
+}
+
+.noPosts p{
+margin-bottom: 1.5em;
+}
+
+.noPosts a{
+    padding: 10px 25px;
+}

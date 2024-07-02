@@ -1,5 +1,5 @@
 //Styles
-import styles from "./Posts.module.css";
+import styles from "./CreatePost.module.css";
 
 //Hooks
 import { useState } from "react";
@@ -7,7 +7,7 @@ import { useAddDocument } from "../../hooks/useAddDocument";
 import { useAuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-const Posts = () => {
+const CreatePost = () => {
   const [title, setTitle] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [tags, setTags] = useState([]);
@@ -128,4 +128,4 @@ const Posts = () => {
   );
 };
 
-export default Posts;
+export default CreatePost;
