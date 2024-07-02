@@ -49,7 +49,6 @@ const Home = () => {
                 key={doc.id}
                 postId={doc.id}
                 title={doc.title.title}
-                body={doc.body.body}
                 tags={doc.tags.tags}
                 createdBy={doc.createdBy}
                 imageUrl={doc.imageUrl.imageUrl}

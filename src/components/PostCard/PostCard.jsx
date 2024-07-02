@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 //Styles
 import styles from "./PostCard.module.css";
 
-const PostCard = ({ postId, title, body, tags, createdBy, imageUrl }) => {
+const PostCard = ({ postId, title, tags, createdBy, imageUrl }) => {
   return (
     <div className={styles.card}>
       <Link to={`/post/${postId}`}>

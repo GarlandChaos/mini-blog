@@ -11,7 +11,6 @@ import { db } from "../firebase/config";
 export const useFetchDocuments = (
   documentCollection,
   search = null,
-  uid = null
 ) => {
   const [documents, setDocuments] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -54,7 +53,7 @@ export const useFetchDocuments = (
     }
 
     loadDocuments();
-  }, [documentCollection, search, uid, isCancelled]);
+  }, [documentCollection, search, isCancelled]);
 
   useEffect(() => {
     return () => setIsCancelled(true);

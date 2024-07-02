@@ -14,12 +14,13 @@ import { AuthContextProvider } from "./context/AuthContext";
 
 //Pages
 import Home from "./pages/Home/Home";
-import About from "./pages/About/About";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
+import Post from "./pages/Post/Post";
+import Search from "./pages/Search/Search";
+import About from "./pages/About/About";
 import CreatePost from "./pages/CreatePost/CreatePost";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import Search from "./pages/Search/Search";
 
 //Components
 import Navbar from "./components/Navbar/Navbar";
@@ -55,6 +56,7 @@ function App() {
                 path="/signup"
                 element={isUserNull ? <SignUp /> : <Navigate to="/" />}
               />
+              <Route path="/post/:id" element={<Post />} />
               <Route path="/search" element={<Search />} />
               <Route path="/about" element={<About />} />
               <Route
