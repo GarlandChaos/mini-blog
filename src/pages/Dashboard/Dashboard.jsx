@@ -1,21 +1,28 @@
 //Libs
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 //Styles
 import styles from "./Dashboard.module.css";
 
-//Context
-import { useAuthContext } from "../../context/AuthContext";
+//Hooks
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import { useDeleteDocument } from "../../hooks/useDeleteDocument";
 
+//Context
+import { useAuthContext } from "../../context/AuthContext";
+
 const Dashboard = () => {
   const user = useAuthContext();
-  const uid = user.uid;
+  const uid = user.user.uid;
   const { documents, loading, error } = useFetchDocuments("Posts", null, uid);
   const { deleteDocument, response } = useDeleteDocument("Posts");
+  const navigate = useNavigate();
 
   if (loading) return <p>Loading posts...</p>;
+
+  const editDocument = (postId) => {
+    navigate(`/post/${postId}/edit`);
+  };
 
   return (
     <>
@@ -27,6 +34,7 @@ const Dashboard = () => {
             return (
               <div key={index}>
                 <span>{post.title.title}</span>
+                <button onClick={() => editDocument(post.id)}>Edit</button>
                 <button onClick={() => deleteDocument(post.id)}>Delete</button>
               </div>
             );

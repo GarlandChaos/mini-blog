@@ -17,6 +17,7 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
 import Post from "./pages/Post/Post";
+import EditPost from "./pages/EditPost/EditPost";
 import Search from "./pages/Search/Search";
 import About from "./pages/About/About";
 import CreatePost from "./pages/CreatePost/CreatePost";
@@ -57,6 +58,7 @@ function App() {
                 element={isUserNull ? <SignUp /> : <Navigate to="/" />}
               />
               <Route path="/post/:id" element={<Post />} />
+              <Route path="/post/:id/edit" element={<EditPost />} />
               <Route path="/search" element={<Search />} />
               <Route path="/about" element={<About />} />
               <Route

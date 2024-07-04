@@ -30,7 +30,6 @@ const Post = () => {
       </>
     );
   }
-  console.log(post);
 
   return (
     <>

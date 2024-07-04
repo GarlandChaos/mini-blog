@@ -1,0 +1,23 @@
+.edit_post_header {
+    text-align: center;
+    margin: 20px 0px 20px 0px;
+}
+
+.edit_post_header h1 {
+    margin-bottom: 10px;
+}
+
+.edit_post_header p {
+    color: #aaa;
+}
+
+.imagePreviewTitle{
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+.imagePreview{
+    max-width: 100%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}

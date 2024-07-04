@@ -60,7 +60,7 @@ export const useFetchDocuments = (
     }
 
     loadDocuments();
-  }, [documentCollection, search, isCancelled]);
+  }, [documentCollection, search, uid, isCancelled]);
 
   useEffect(() => {
     return () => setIsCancelled(true);
