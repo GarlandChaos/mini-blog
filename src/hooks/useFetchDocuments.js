@@ -11,6 +11,7 @@ import { db } from "../firebase/config";
 export const useFetchDocuments = (
   documentCollection,
   search = null,
+  uid = null
 ) => {
   const [documents, setDocuments] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -32,6 +33,12 @@ export const useFetchDocuments = (
           q = await query(
             collectionReference, 
             where("tags.tags", "array-contains", search),
+            orderBy("createdAt", "desc"));
+        }
+        else if(uid){
+          q = await query(
+            collectionReference, 
+            where("uid", "==", uid),
             orderBy("createdAt", "desc"));
         }
         else{
