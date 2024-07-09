@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
 
-//Styles
-import styles from "./Login.module.css";
-
 //Hooks
 import { useAuthentication } from "../../hooks/useAuthentication";
 
@@ -31,7 +28,7 @@ const SignUp = () => {
 
   return (
     <>
-      <div className={styles.login_header}>
+      <div className="page_header">
         <h1>Login</h1>
         <p>Login to share your stories</p>
       </div>

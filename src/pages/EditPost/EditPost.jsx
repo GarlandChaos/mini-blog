@@ -76,7 +76,7 @@ const EditPost = () => {
   };
 
   const updateTags = (tagsString) => {
-    tagsString = tagsString.trim();
+    tagsString = tagsString.replace(" ", "");
     setTagsInput(tagsString);
 
     const tagsArray = tagsString
@@ -89,9 +89,8 @@ const EditPost = () => {
 
   return (
     <>
-      <div className={styles.edit_post_header}>
+      <div className="page_header">
         <h1>Edit post</h1>
-        {/* <p>Write about what you want and share your knowledge!</p> */}
       </div>
       <form onSubmit={handleEditPost}>
         <label>

@@ -27,7 +27,9 @@ const Dashboard = () => {
   return (
     <>
       <div>
-        <h1>Dashboard</h1>
+        <div className="page_header">
+          <h1>Dashboard</h1>
+        </div>
         {!error &&
           documents.length !== 0 &&
           documents.map((post, index) => {
@@ -40,7 +42,7 @@ const Dashboard = () => {
             );
           })}
         {(error || documents.length === 0) && (
-          <div className={styles.noPosts}>
+          <div className="noPosts">
             <p>No posts found.</p>
             <Link to="/createpost" className="btn">
               Create first post

@@ -1,6 +1,3 @@
-//Styles
-import styles from "./CreatePost.module.css";
-
 //Hooks
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -48,21 +45,20 @@ const CreatePost = () => {
   };
 
   const updateTags = (tagsString) => {
-    tagsString = tagsString.trim();
+    tagsString = tagsString.replace(" ", "");
     setTagsInput(tagsString);
 
     const tagsArray = tagsString
       .toLowerCase()
       .split(",")
       .filter((tag) => tag !== "");
-    // console.log(tagsArray);
 
     setTags(tagsArray);
   };
 
   return (
     <>
-      <div className={styles.create_post_header}>
+      <div className="page_header">
         <h1>Create your post</h1>
         <p>Write about what you want and share your knowledge!</p>
       </div>
@@ -117,13 +113,6 @@ const CreatePost = () => {
         {response.error && <p className="error">{response.error}</p>}
         {formError && <p className="error">{formError}</p>}
       </form>
-      {/* <div> */}
-      {/* <ol> */}
-      {/* {tags.map((tag, index) => (
-          <li key={index}>{tag}</li>
-        ))} */}
-      {/* </ol> */}
-      {/* </div> */}
     </>
   );
 };

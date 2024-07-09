@@ -21,7 +21,7 @@ const Search = () => {
 
   return (
     <>
-      <div className={styles.search_header}>
+      <div className="page_header">
         <h1>Search results for &apos;{search}&apos;</h1>
       </div>
       <div className={styles.postCardsContainer}>
@@ -40,7 +40,7 @@ const Search = () => {
             );
           })}
         {(error || documents.length === 0) && (
-          <div className={styles.noPosts}>
+          <div className="noPosts">
             <p>No posts found.</p>
             <Link to="/" className="btn">
               Return to home

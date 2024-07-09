@@ -4,8 +4,14 @@ const Footer = () => {
   return (
     <>
       <footer className={styles.footer}>
-        <h3>Text here</h3>
-        <p>Mini Blog &copy; 2023</p>
+        <div className="page_header">
+          Express yourself on
+          <h3 className="brand">
+            Mini <span>Blog</span>
+          </h3>
+        </div>
+        <p>Mini Blog &copy; 2024</p>
+        <p>Developed by Bernardo Alvarez Braga</p>
       </footer>
     </>
   );

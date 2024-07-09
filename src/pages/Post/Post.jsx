@@ -21,7 +21,7 @@ const Post = () => {
   if (error || !post || post == {}) {
     return (
       <>
-        <div className={styles.noPosts}>
+        <div className="noPosts">
           <p>Error retrieving post. It may not exist or was deleted.</p>
           <Link to="/createpost" className="btn">
             Create post
@@ -39,10 +39,16 @@ const Post = () => {
         )}
         {Object.hasOwn(post, "title") && <h1>{post.title.title}</h1>}
         <p>by {post.createdBy}</p>
-        {Object.hasOwn(post, "tags") &&
-          post.tags.tags.map((tag) => {
-            return <span key={tag}>#{tag}</span>;
-          })}
+        <div className={styles.tagsContainer}>
+          {Object.hasOwn(post, "tags") &&
+            post.tags.tags.map((tag) => {
+              return (
+                <span key={tag} className={styles.tag}>
+                  #{tag}
+                </span>
+              );
+            })}
+        </div>
         {Object.hasOwn(post, "body") && <p>{post.body.body}</p>}
       </div>
     </>

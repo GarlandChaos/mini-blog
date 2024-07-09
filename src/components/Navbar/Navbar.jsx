@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <>
       <nav className={styles.navbar}>
-        <NavLink to="/" className={styles.brand}>
+        <NavLink to="/" className="brand">
           Mini <span>Blog</span>
         </NavLink>
         <ul className={styles.links_list}>
@@ -56,7 +56,7 @@ const Navbar = () => {
                   to="/createpost"
                   className={({ isActive }) => (isActive ? styles.active : "")}
                 >
-                  Posts
+                  Create post
                 </NavLink>
               </li>
               <li>
