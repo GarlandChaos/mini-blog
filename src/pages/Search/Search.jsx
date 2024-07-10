@@ -21,7 +21,7 @@ const Search = () => {
 
   return (
     <>
-      <div className="page_header">
+      <div className="pageHeader">
         <h1>Search results for &apos;{search}&apos;</h1>
       </div>
       <div className={styles.postCardsContainer}>

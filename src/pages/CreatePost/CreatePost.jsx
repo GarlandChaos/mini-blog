@@ -58,7 +58,7 @@ const CreatePost = () => {
 
   return (
     <>
-      <div className="page_header">
+      <div className="pageHeader">
         <h1>Create your post</h1>
         <p>Write about what you want and share your knowledge!</p>
       </div>

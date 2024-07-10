@@ -28,7 +28,7 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="page_header">
+      <div className="pageHeader">
         <h1>Login</h1>
         <p>Login to share your stories</p>
       </div>

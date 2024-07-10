@@ -20,7 +20,7 @@ const Navbar = () => {
         <NavLink to="/" className="brand">
           Mini <span>Blog</span>
         </NavLink>
-        <ul className={styles.links_list}>
+        <ul className={styles.linksList}>
           <li>
             <NavLink
               to="/"

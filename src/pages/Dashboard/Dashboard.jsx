@@ -1,5 +1,5 @@
 //Libs
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 //Styles
 import styles from "./Dashboard.module.css";
@@ -14,34 +14,55 @@ import { useAuthContext } from "../../context/AuthContext";
 const Dashboard = () => {
   const user = useAuthContext();
   const uid = user.user.uid;
-  const { documents, loading, error } = useFetchDocuments("Posts", null, uid);
+  const {
+    documents,
+    loading: fetchDocumentsLoading,
+    error: fetchDocumentsError,
+  } = useFetchDocuments("Posts", null, uid);
   const { deleteDocument, response } = useDeleteDocument("Posts");
-  const navigate = useNavigate();
 
-  if (loading) return <p>Loading posts...</p>;
-
-  const editDocument = (postId) => {
-    navigate(`/post/${postId}/edit`);
-  };
+  if (fetchDocumentsLoading) return <p>Loading posts...</p>;
 
   return (
     <>
-      <div>
-        <div className="page_header">
+      <div className={styles.dashboard}>
+        <div className="pageHeader">
           <h1>Dashboard</h1>
         </div>
-        {!error &&
-          documents.length !== 0 &&
-          documents.map((post, index) => {
-            return (
-              <div key={index}>
-                <span>{post.title.title}</span>
-                <button onClick={() => editDocument(post.id)}>Edit</button>
-                <button onClick={() => deleteDocument(post.id)}>Delete</button>
-              </div>
-            );
-          })}
-        {(error || documents.length === 0) && (
+        {!fetchDocumentsError && documents.length !== 0 && (
+          <>
+            <div className={styles.postHeader}>
+              <span>Title</span>
+              <span>Actions</span>
+            </div>
+            {documents.map((post) => {
+              return (
+                <div key={post.id} className={styles.postRow}>
+                  <p>{post.title.title}</p>
+                  <div>
+                    <Link to={`/post/${post.id}`} className="btn btn-outline">
+                      View
+                    </Link>
+                    <Link
+                      to={`/post/${post.id}/edit`}
+                      className="btn btn-outline"
+                    >
+                      Edit
+                    </Link>
+                    <button
+                      onClick={() => deleteDocument(post.id)}
+                      className="btn btn-outline btn-danger"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </>
+        )}
+
+        {(fetchDocumentsError || documents.length === 0) && (
           <div className="noPosts">
             <p>No posts found.</p>
             <Link to="/createpost" className="btn">

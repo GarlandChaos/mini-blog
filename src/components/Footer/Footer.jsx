@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <>
       <footer className={styles.footer}>
-        <div className="page_header">
+        <div className="pageHeader">
           Express yourself on
           <h3 className="brand">
             Mini <span>Blog</span>

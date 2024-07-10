@@ -28,7 +28,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="page_header">
+      <div className="pageHeader">
         <h1>Recent Posts</h1>
       </div>
       <div className={styles.postCardsContainer}>
@@ -36,7 +36,7 @@ const Home = () => {
           <input
             type="text"
             name="searchBar"
-            placeholder="Search for posts here"
+            placeholder="Search for posts by tags here"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />

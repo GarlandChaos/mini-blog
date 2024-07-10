@@ -89,7 +89,7 @@ const EditPost = () => {
 
   return (
     <>
-      <div className="page_header">
+      <div className="pageHeader">
         <h1>Edit post</h1>
       </div>
       <form onSubmit={handleEditPost}>

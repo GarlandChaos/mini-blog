@@ -35,7 +35,7 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="page_header">
+      <div className="pageHeader">
         <h1>Sign up to post</h1>
         <p>Create your user and share your stories</p>
       </div>

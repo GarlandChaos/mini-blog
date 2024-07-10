@@ -7,16 +7,16 @@
     margin-bottom: 2em;
 }
 
-.links_list{
+.linksList{
     display: flex;
     list-style: none;
 }
 
-.links_list li {
+.linksList li {
     margin-right: 1em;
 }
 
-.links_list li a{
+.linksList li a{
     padding: .4em .6em;
 }
 
