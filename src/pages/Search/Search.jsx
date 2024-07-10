@@ -31,11 +31,11 @@ const Search = () => {
               <PostCard
                 key={doc.id}
                 postId={doc.id}
-                title={doc.title.title}
-                body={doc.body.body}
-                tags={doc.tags.tags}
+                title={doc.title}
+                body={doc.body}
+                tags={doc.tags}
                 createdBy={doc.createdBy}
-                imageUrl={doc.imageUrl.imageUrl}
+                imageUrl={doc.imageUrl}
               />
             );
           })}

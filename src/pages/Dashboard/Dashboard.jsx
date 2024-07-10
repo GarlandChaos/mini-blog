@@ -38,7 +38,7 @@ const Dashboard = () => {
             {documents.map((post) => {
               return (
                 <div key={post.id} className={styles.postRow}>
-                  <p>{post.title.title}</p>
+                  <p>{post.title}</p>
                   <div>
                     <Link to={`/post/${post.id}`} className="btn btn-outline">
                       View

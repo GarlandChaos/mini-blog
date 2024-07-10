@@ -1,0 +1,10 @@
+.imagePreviewTitle {
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+.imagePreview {
+    max-width: 100%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}

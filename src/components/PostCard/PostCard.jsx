@@ -8,9 +8,7 @@ const PostCard = ({ postId, title, tags, createdBy, imageUrl }) => {
   return (
     <div className={styles.card}>
       <Link to={`/post/${postId}`}>
-        <div className={styles.imgContainer}>
-          <img src={imageUrl} alt={title} />
-        </div>
+        <img src={imageUrl} alt={title} />
         <div className={styles.textContainer}>
           <h2>{title}</h2>
           <p>by {createdBy}</p>

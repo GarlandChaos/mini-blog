@@ -35,13 +35,13 @@ const Post = () => {
     <>
       <div className={styles.postContainer}>
         {Object.hasOwn(post, "imageUrl") && (
-          <img src={post.imageUrl.imageUrl} alt={post.title.title} />
+          <img src={post.imageUrl} alt={post.title} />
         )}
-        {Object.hasOwn(post, "title") && <h1>{post.title.title}</h1>}
+        {Object.hasOwn(post, "title") && <h1>{post.title}</h1>}
         <p>by {post.createdBy}</p>
         <div className={styles.tagsContainer}>
           {Object.hasOwn(post, "tags") &&
-            post.tags.tags.map((tag) => {
+            post.tags.map((tag) => {
               return (
                 <span key={tag} className={styles.tag}>
                   #{tag}
@@ -49,7 +49,9 @@ const Post = () => {
               );
             })}
         </div>
-        {Object.hasOwn(post, "body") && <p>{post.body.body}</p>}
+        {Object.hasOwn(post, "body") && (
+          <p className={styles.bodyArea}>{post.body}</p>
+        )}
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-.card{
+.card {
     display: flex;
     background-color: #d4d4d4;
     color: #000;
@@ -8,8 +8,12 @@
     width: 50%;
     margin: 2em;
 }
+.card a {
+    width: 100%;
+    height: 100%;
+}
 
-.imgContainer img{
+.card img {
     width: 100%;
     height: auto;
 }
@@ -20,7 +24,7 @@
     padding-left: 8px;
 }
 
-.textContainer p{
+.textContainer p {
     font-size: 0.9em;
 }
 

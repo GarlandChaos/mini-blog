@@ -48,10 +48,10 @@ const Home = () => {
               <PostCard
                 key={doc.id}
                 postId={doc.id}
-                title={doc.title.title}
-                tags={doc.tags.tags}
+                title={doc.title}
+                tags={doc.tags}
                 createdBy={doc.createdBy}
-                imageUrl={doc.imageUrl.imageUrl}
+                imageUrl={doc.imageUrl}
               />
             );
           })}

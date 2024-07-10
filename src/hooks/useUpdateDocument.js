@@ -38,13 +38,7 @@ export const useUpdateDocument = (documentCollection) => {
 
     try {
       const docReference = await doc(db, documentCollection, id);
-      console.log(docReference);
-      console.log(id);
-      console.log(data);
       const updatedDoc = await updateDoc(docReference, data);
-
-      console.log("aaaaaaa");
-      console.log("updatedDoc: " + updatedDoc);
 
       checkIfIsCancelledBeforeDispatch({
         type: "UPDATED",
