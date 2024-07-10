@@ -15,8 +15,8 @@ This project consists of a blog made with React for the front-end and Firebase f
 
 ### Technologies used
 
-* [HTML5](https://developer.mozilla.org/pt-BR/docs/Web/Guide/HTML/HTML5)
-* [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+* [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 * [React](https://react.dev/)
 * [Firebase](https://firebase.google.com/)
 
